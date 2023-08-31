@@ -25,3 +25,8 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.square-card {
+  width: 399px; /* Adjust the width as needed */
+  height: 399px; /* Equal to the width to make it square */
+}

@@ -3,6 +3,7 @@ import Navbar from './components/navbar/navbar'
 import HeroSection from './components/hero/hero'
 import WhatWeDoSection from './components/what-we-do/what-we-do'
 import CaseStudySection from './components/case-study/case-study'
+import Brands from './components/brands/brands'
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <HeroSection></HeroSection>
       <WhatWeDoSection></WhatWeDoSection>
       <CaseStudySection></CaseStudySection>
+      <Brands></Brands>
     
     </main>
   )

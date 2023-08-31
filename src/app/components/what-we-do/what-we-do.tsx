@@ -1,5 +1,10 @@
 import React from 'react';
 import styles from './what-we-do.module.css'
+import webdevIcon from '../../../assets/Web Dev Icon.svg'
+import uxIcon from '../../../assets/UX Icon.svg'
+import blockchainIcon from '../../../assets/block-chain.svg'
+import appIcon from '../../../assets/App Dev Icon.svg'
+import Image from 'next/image';
 
 const WhatWeDoSection = () => {
   return (
@@ -13,11 +18,8 @@ const WhatWeDoSection = () => {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="p-4">
-            <img
-            className="absolute top-[0px] left-[0px] w-16 h-16 overflow-hidden"
-              alt=""
-              src="/web-dev-icon.svg"
-            />
+            
+            <Image src={webdevIcon} alt='' width={64} height={64} className="mb-12"></Image>
             <h3 className="font-inter text-[24px] font-semibold mb-4">
               Web development
             </h3>
@@ -26,6 +28,7 @@ const WhatWeDoSection = () => {
             </p>
           </div>
           <div className="p-4">
+          <Image src={uxIcon} alt='' width={64} height={64} className="mb-12"></Image>
             <h3 className="font-inter text-[24px]  font-semibold mb-4">
             User experience & design
             </h3>
@@ -34,6 +37,7 @@ const WhatWeDoSection = () => {
             </p>
           </div>
           <div className="p-4">
+          <Image src={appIcon} alt='' width={64} height={64} className="mb-12"></Image>
             <h3 className="font-inter text-[24px] font-semibold mb-4">
             Mobile app development
             </h3>
@@ -42,6 +46,7 @@ const WhatWeDoSection = () => {
             </p>
           </div>
            <div className="p-4">
+           <Image src={blockchainIcon} alt='' width={64} height={64} className="mb-12"></Image>
             <h3 className="font-inter text-[24px] font-semibold mb-4">
             Blockchain solutions
             </h3>

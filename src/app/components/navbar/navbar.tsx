@@ -1,12 +1,13 @@
 import React from 'react';
+import Image from 'next/image';
+import logo from '../../../assets/logo.svg' 
 
 const Navbar = () => {
   return (
-    <nav className="bg-blue-500 p-4 flex items-center justify-between">
+    <nav className="bg-purple-500 p-4 px-20 flex items-center justify-between">
       {/* Left side - Navigation Brand */}
       <div className="flex items-center px-10">
-        <img src="/path/to/logo.png" alt="Logo" className="w-10 h-10 mr-2" />
-        <span className="text-white text-lg font-semibold">My App</span>
+        <Image src={logo} alt='' width={100} height={100} className="w-10 h-10 mr-2"></Image>
       </div>
 
       {/* Center - Navigation Links */}
@@ -19,8 +20,8 @@ const Navbar = () => {
 
       {/* Right - Learn More Button */}
       <div>
-        <button className="bg-white text-blue-500 py-2 px-4 rounded-full hover:bg-blue-100">
-          Learn More
+        <button className="bg-white text-purple-500 py-2 px-4 rounded-full hover:bg-purple-100">
+        Let’s Talk
         </button>
       </div>
     </nav>

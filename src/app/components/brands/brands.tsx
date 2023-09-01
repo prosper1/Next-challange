@@ -1,25 +1,13 @@
 "use client";
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 
 import logo from '../../../assets/logo.svg'
 import rectangle from '../../../assets/Rectangle 1.svg'
-import { getClient } from '@/app/apollo';
 
 
-const GET_BRANDS = gql`
-    query{
-        brandsByCategory{
-        id
-        url
-        category
-        }
-    }
-`;
-
-// export const dynamic = "force-dynamic";
 
 const query = gql`
     query{
@@ -32,32 +20,29 @@ const query = gql`
 `;
 
 interface Response {
-  users: { id: number; name: string; email: string }[];
+  brands: { id: number; url: string; category: string }[];
 }
 
 const  Brands = () => {
     const [count, setCount] = React.useState(0);
-    const { data, error } = useQuery<Response>(query);
-    console.log(data)
-//     const { loading, error, data } = useQuery(GET_BRANDS);
-//     const [selectedCategory, setSelectedCategory] = useState('');
+    const { data, error } = useQuery(query);
+ 
+    const [selectedCategory, setSelectedCategory] = useState('');
 
-//     if (loading) return <p>Loading...</p>;
-//     if (error) return <p>Error: {error.message}</p>;
+    if (error) return <p>Error: {error.message}</p>;
 
-//     const brands = data.brands;
-//     console.log(brands)
-//     const categories = [...new Set(brands.map((brand) => brand.category))];
+    const brands = data?.brandsByCategory || []
+    console.log('zzzzzzz',brands)
 
-//     const handleCategoryChange = (event) => {
-//         setSelectedCategory(event.target.value);
-//     };
+    const handleCategoryChange = (event:any) => {
+        setSelectedCategory(event.target.value);
+    };
 
-//     const filteredBrands = selectedCategory
-//         ? brands.filter((brand) => brand.category === selectedCategory)
-//         : brands;
+    const filteredBrands = selectedCategory
+        ? brands.filter((brand:any) => brand.category === selectedCategory)
+        : brands;
 
-
+    console.log(filteredBrands)
     return (
     <section className="section bg-white text-black py-16">
         <div className="container mx-auto">
@@ -73,28 +58,31 @@ const  Brands = () => {
                 Trusted by leading brands
                 </p>
 
+                <div>
+        <label>Filter by Category:</label>
+        <select onChange={handleCategoryChange} value={selectedCategory} className='mb-6'>
+          <option value="">All</option>
+            <option value="RETAIl">RETAIL</option>
+            <option value="ELECTRONICS">ELECTRONICS</option>
+            <option value="CLOTHING">CLOTHING</option>
+            <option value="FUEL">FUEL</option>
+            <option value="INSURANCE">INSURANCE</option>
+         
+        </select>
+      </div>
+
                 
-            <div className="flex w-[1279px h-[68px] flex-shrink-0">
-                
-                <div className="grid grid-cols-5 gap-auto">
-                    {/* Brand icon 1 */}
-                    <div className=" rounded">
-                    <Image src={logo} alt='' width={100} height={100} className="w-10 h-10 mr-2"></Image>
-                    </div>
-                    
-                    {/* Brand icon 2 */}
-                    <div className="w-1/5 bg-gray-300 rounded">ddd</div>
-                    
-                    {/* Brand icon 3 */}
-                    <div className="w-1/5 bg-gray-300 rounded">sss</div>
-                    
-                    {/* Brand icon 4 */}
-                    <div className="w-1/5 bg-gray-300 rounded"></div>
-                    
-                    {/* Brand icon 5 */}
-                    <div className="w-1/5 bg-gray-300 rounded"></div>
+      <div className="flex justify-center items-center">
+        <div className="grid grid-cols-5 gap-auto">
+            {filteredBrands.map((brand: any) => (
+            <div className="rounded" key={brand.id}>
+                <div className="flex justify-center h-[32px]"> {/* Center the image horizontally */}
+                <Image src={brand.url} alt='' width={100} height={100} className="w-[256px] h-auto mr-2"></Image>
                 </div>
             </div>
+            ))}
+        </div>
+</div>
         </div>
     </section>
     

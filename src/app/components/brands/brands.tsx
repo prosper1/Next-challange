@@ -63,11 +63,11 @@ const  Brands = () => {
         <select onChange={handleCategoryChange} value={selectedCategory} className='mb-6'>
           <option value="">All</option>
             <option value="RETAIl">RETAIL</option>
-            <option value="ELECTRONICS">ELECTRONICS</option>
+            <option value="ELECTRONIC">ELECTRONICS</option>
             <option value="CLOTHING">CLOTHING</option>
             <option value="FUEL">FUEL</option>
             <option value="INSURANCE">INSURANCE</option>
-         
+            <option value="INSURANCE">BANKING</option>
         </select>
       </div>
 

@@ -5,6 +5,12 @@ const { RootQuery } = require('./resolvers');
 
 
 const app = express();
+const cors = require('cors');
+
+const corsOptions = {
+    origin: 'http://localhost:3000', 
+    optionsSuccessStatus: 200, 
+  };
 
 // Define types, queries, mutations, and resolver functions here
 
@@ -12,6 +18,7 @@ const schema = new GraphQLSchema({
   query: RootQuery,
 });
 
+app.use(cors(corsOptions));
 app.use('/graphql', graphqlHTTP({
   schema,
   graphiql: true, // Enable GraphiQL for testing

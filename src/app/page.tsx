@@ -5,7 +5,7 @@ import WhatWeDoSection from './components/what-we-do/what-we-do'
 import CaseStudySection from './components/case-study/case-study'
 import Brands from './components/brands/brands'
 
-export default function Home() {
+export default async function Home() {
   return (
     <main>
       <Navbar></Navbar>
@@ -13,6 +13,7 @@ export default function Home() {
       <WhatWeDoSection></WhatWeDoSection>
       <CaseStudySection></CaseStudySection>
       <Brands></Brands>
+
     
     </main>
   )

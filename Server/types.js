@@ -1,10 +1,11 @@
-const { GraphQLObjectType, GraphQLString, GraphQLList } = require('graphql');
+const { GraphQLObjectType, GraphQLString, GraphQLList, GraphQLID, GraphQLInt } = require('graphql');
 
 const BrandImageType = new GraphQLObjectType({
   name: 'BrandImage',
   fields: () => ({
-    id: { type: GraphQLString },
+    id: { type: GraphQLInt },
     url: { type: GraphQLString },
+    category: {type: GraphQLString},
   }),
 });
 

@@ -10,7 +10,7 @@ const RootQuery = new GraphQLObjectType({
       async resolve(parent, args) {
         try {
           const query = `
-            SELECT brand_images.url AS brandImage, brand_images.category AS category
+            SELECT brand_images.id AS id, brand_images.url AS url, brand_images.category AS category
             FROM brand_images
           `;
 

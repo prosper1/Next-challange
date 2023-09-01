@@ -4,15 +4,20 @@ import webdevIcon from '../../../assets/Web Dev Icon.svg'
 import uxIcon from '../../../assets/UX Icon.svg'
 import blockchainIcon from '../../../assets/block-chain.svg'
 import appIcon from '../../../assets/App Dev Icon.svg'
+
+import rectangle from '../../../assets/Rectangle 1.svg'
 import Image from 'next/image';
 
 const WhatWeDoSection = () => {
   return (
     <section className="bg-white text-black py-16">
       <div className="container mx-auto">
+      <div className="flex">
+            <Image src={rectangle} alt='' width={30} height={30} className="" />
         <h2 className="font-inter text-[24px]  mb-8">
-          <span>--</span>What We Do
+          What We Do
         </h2>
+        </div>
         <p className="font-inter text-[48px] font-semibold mb-12">
         We offer a complete range of bespoke design and development services to help you turn your ideas into digital masterpieces
         </p>

@@ -30,3 +30,20 @@ body {
   width: 399px; /* Adjust the width as needed */
   height: 399px; /* Equal to the width to make it square */
 }
+
+.before:bg-svg-line {
+  background-image: url('../assets/Rectangle\ 1.svg');
+}
+
+.before:w-6 {
+  width: 1.5rem; /* Adjust width as needed */
+}
+
+.before:h-px {
+  height: 1px; /* Adjust height as needed */
+}
+
+
+
+
+
